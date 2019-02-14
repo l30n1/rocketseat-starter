@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Curso Javascript</title>
+  </head>
+  <body>
+    <div id="app">
+      <button>criar!</button>
+    </div>
+
+    <script>
+      var botaoElement = document.querySelector("div button");
+      function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      botaoElement.onclick = function() {
+        var boxElement = document.createElement("div");
+        boxElement.style.width = "100px";
+        boxElement.style.height = "100px";
+        boxElement.style.backgroundColor = "#f00";
+        boxElement.style.margin = "4px";
+        boxElement.onmouseover = function() {
+          boxElement.style.backgroundColor = getRandomColor();
+        };
+        var appElement = document.querySelector("#app");
+        appElement.appendChild(boxElement);
+      };
+    </script>
+  </body>
+</html>
